@@ -1,1 +1,0 @@
-{"version":3,"file":"1613832988787-TestMigration.js","sourceRoot":"","sources":["../../../src/migration/1613832988787-TestMigration.ts"],"names":[],"mappings":";;;;;;;;;;;;AAEA,MAAa,0BAA0B;IAEtB,EAAE,CAAC,WAAwB;;YACpC,MAAM,WAAW,CAAC,KAAK,CAAC,6CAA6C,CAAC,CAAC;QAC3E,CAAC;KAAA;IAEY,IAAI,CAAC,WAAwB;;YACtC,MAAM,WAAW,CAAC,KAAK,CAAC,uCAAuC,CAAC,CAAA;QACpE,CAAC;KAAA;CAEJ;AAVD,gEAUC"}
