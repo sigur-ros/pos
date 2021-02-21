@@ -6,7 +6,12 @@
     "packages/*"
   ],
   "scripts": {
-    "lint-staged": "lint-staged"
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "lint-staged": "lint-staged",
+    "server:watch": "yarn workspace server watch",
+    "server:dev": "yarn workspace server dev",
+    "server:start": "yarn workspace server start",
+    "server:typeorm": "yarn workspace server typeorm"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
