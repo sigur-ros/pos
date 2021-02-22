@@ -33,7 +33,6 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - name: lol LS
       - run: yarn validate
         env:
           CI: true
@@ -48,5 +47,4 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - name: lol LS
       - run: ls -a
