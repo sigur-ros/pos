@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install --frozen-lockfile
-      - uses: actions/cache@v
+      - uses: actions/cache@v2
         id: cache-build
         with:
           path: './'
