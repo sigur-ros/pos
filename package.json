@@ -8,7 +8,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
     "lint-staged": "lint-staged",
-    "server:watch": "yarn workspace server watch",
+    "server:build": "yarn workspace server build",
     "server:dev": "yarn workspace server dev",
     "server:start": "yarn workspace server start",
     "server:typeorm": "yarn workspace server typeorm"
