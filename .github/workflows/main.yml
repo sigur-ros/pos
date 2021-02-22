@@ -34,7 +34,6 @@ jobs:
           path: '.'
           key: ${{ github.sha }}
       - name: lol LS
-      - run: ls -a
       - run: yarn validate
         env:
           CI: true
