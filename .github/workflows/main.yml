@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/cache@v2.1.4
         id: restore-build
         with:
@@ -42,9 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/cache@v2.1.4
         id: restore-build
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: cd .. && ls -a
+      - run: cd .. && ls -a && cd pos ls -a
