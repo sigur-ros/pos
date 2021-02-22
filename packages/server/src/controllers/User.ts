@@ -7,18 +7,21 @@ class UserController {
     const userRepo = getRepository(User)
 
     const { name, username, password, email } = req.body
+
     try {
       const user = userRepo.create({
-        name: name!,
-        username: username!,
-        email: email!,
-        password: password!
+        name,
+        username,
+        email,
+        password
       })
 
       await userRepo.save(user)
-      res.json({ message: 'User created!' })
+
+      res.json({ message: 'User created!', user })
     } catch (error) {
-      res.json({ error })
+      // TODO(kevanantha): use middleware for error handling
+      res.json({ error }).status(404)
     }
   }
 

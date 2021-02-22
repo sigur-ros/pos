@@ -1,23 +1,31 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
-import { connectDB } from './config/database'
-import Router from './routes/index'
 import morgan from 'morgan'
+import { createConnection } from 'typeorm'
+import ormconfig from './ormconfig'
 
-const app = express()
-const PORT: String = process.env.PORT || '3000'
+import Router from './routes'
 
-connectDB()
-  .then((_) => console.log('DB Connected'))
-  .catch((err) => console.log(err))
+const main = async () => {
+  const app = express()
+  const PORT: String = process.env.PORT || '3000'
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
-app.use(morgan('dev'))
+  await createConnection(ormconfig).then((_) => {
+    console.log('DB Connected')
+  })
 
-app.use('/', Router)
+  app.use(express.urlencoded({ extended: false }))
+  app.use(express.json())
+  app.use(morgan('dev'))
 
-app.listen(PORT, () => {
-  console.log(`Listening port: ${PORT}`)
+  app.use('/', Router)
+
+  app.listen(PORT, () => {
+    console.log(`Server runs on port: ${PORT}`)
+  })
+}
+
+main().catch((err) => {
+  console.error(err)
 })
