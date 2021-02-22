@@ -49,4 +49,4 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: cd .. && ls -a && cd pos ls -a
+      - run: cd .. && ls -a && cd pos && ls -a
