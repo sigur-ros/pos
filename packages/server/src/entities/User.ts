@@ -1,19 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Entity, PrimaryKey, Property } from '@mikro-orm/core'
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryKey()
+  id!: Number
 
-  @Column()
-  name: string
+  @Property({ type: 'date' })
+  createdAt = new Date()
 
-  @Column()
-  username: string
+  @Property({ type: 'date', onUpdate: () => new Date() })
+  updatedAt = new Date()
 
-  @Column()
-  email: string
+  @Property({ type: 'text', unique: true })
+  username!: string
 
-  @Column()
-  password: string
+  @Property({ type: 'text', unique: true })
+  email!: string
+
+  @Property({ type: 'text' })
+  password!: string
 }

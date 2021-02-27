@@ -2,16 +2,16 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import morgan from 'morgan'
-import { createConnection } from 'typeorm'
-import ormconfig from './ormconfig'
+import { MikroORM } from '@mikro-orm/core'
 
 import Router from './routes'
+import mikroOrmConfig from './mikro-orm.config'
 
 const main = async () => {
   const app = express()
   const PORT: String = process.env.PORT || '3000'
 
-  await createConnection(ormconfig).then((_) => {
+  await MikroORM.init(mikroOrmConfig).then((_) => {
     console.log('DB Connected')
   })
 
