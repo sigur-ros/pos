@@ -16,6 +16,9 @@ class UserController {
 
     try {
       await DI.em.persistAndFlush(user)
+
+      req.session.userId = user.id
+
       res
         .json({
           user: {
@@ -34,15 +37,20 @@ class UserController {
     const { username } = req.params
 
     try {
-      const user = await DI.em.findOne(User, { username })
-      res.json({
-        user: {
-          username: user?.username,
-          email: user?.email
-        }
-      })
+      const user = await DI.em.findOneOrFail(User, { username })
+
+      if (user) {
+        res.json({
+          user: {
+            username: user.username,
+            email: user.email
+          }
+        })
+      } else {
+        res.json({ error: 'error' }).status(404)
+      }
     } catch (err) {
-      res.json({ error: err })
+      res.json({ error: err }).status(404)
     }
   }
 }
