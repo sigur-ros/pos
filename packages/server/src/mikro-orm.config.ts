@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
-import { MikroORMOptions } from '@mikro-orm/core'
+import { Options } from '@mikro-orm/core'
 import { __prod__ } from './constants'
 import path from 'path'
 
@@ -16,4 +16,4 @@ export default {
   dbName: process.env.DB_NAME,
   type: process.env.DB_TYPE,
   debug: !__prod__
-} as MikroORMOptions
+} as Options
