@@ -12,7 +12,10 @@
     "server:build": "yarn workspace server build",
     "server:dev": "yarn workspace server dev",
     "server:start": "yarn workspace server start",
-    "server:typeorm": "yarn workspace server typeorm"
+    "server:typeorm": "yarn workspace server typeorm",
+    "client:dev": "yarn workspace client start",
+    "client:test": "yarn workspace client test",
+    "client:build": "yarn workspace server build"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
